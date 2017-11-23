@@ -20,6 +20,8 @@ public class Proyecto_cliente_soap {
         TipoTransacCRUD obj = new TipoTransacCRUD();
         obj.setVisible(true);
         obj.setLocationRelativeTo(null);
+        TipoTransacCRUD obj2;
+        
     }
 
 }
