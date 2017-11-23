@@ -162,7 +162,6 @@ public class servidor {
         if (l1.size() >= 1) {
             Object[] ar_objeto = (Object[]) (l1.get(0));
             String resultado = ar_objeto[0].toString()+","+ar_objeto[2].toString();
-            
             return resultado;
 
         } else {
