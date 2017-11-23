@@ -162,4 +162,22 @@ public interface Servidor {
         @WebParam(name = "par2", targetNamespace = "")
         String par2);
 
+    /**
+     * 
+     * @param asId
+     * @param asPass
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "validarUsuario", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.ValidarUsuario")
+    @ResponseWrapper(localName = "validarUsuarioResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.ValidarUsuarioResponse")
+    @Action(input = "http://pkg_servicio/servidor/validarUsuarioRequest", output = "http://pkg_servicio/servidor/validarUsuarioResponse")
+    public String validarUsuario(
+        @WebParam(name = "as_id", targetNamespace = "")
+        String asId,
+        @WebParam(name = "as_pass", targetNamespace = "")
+        String asPass);
+
 }

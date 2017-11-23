@@ -18,6 +18,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 
+
 /**
  *
  * @author Trancos
@@ -163,6 +164,29 @@ public class servidor {
             Object[] ar_objeto = (Object[]) (l1.get(0));
             String resultado = ar_objeto[0].toString()+","+ar_objeto[2].toString();
             return resultado;
+
+        } else {
+            return null;
+        }
+
+    }
+
+    @WebMethod(operationName = "validarUsuario")
+    public String validarUsuario(@WebParam(name = "as_id") String as_id, @WebParam(name = "as_pass") String as_pass) {
+        String acceso = "";
+
+        String sql = "select * from USUARIOS where US_ID=" + "'" + as_id + "'";
+        Query qe = em1.createNativeQuery(sql);
+        List l1 = qe.getResultList();
+        if (l1.size() >= 1) {
+            Object[] ar_objeto = (Object[]) (l1.get(0));
+            //System.out.println("VALIDANDO: "+as_pass+" "+ar_objeto[1]);
+            if (as_pass.equals(ar_objeto[1])) {
+                acceso = "1," + ar_objeto[2];
+            } else {
+                acceso = "0";
+            }
+            return acceso;
 
         } else {
             return null;

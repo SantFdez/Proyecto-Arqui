@@ -32,6 +32,10 @@
 
 <xs:element name="modificarTipoTransacResponse" type="tns:modificarTipoTransacResponse"/>
 
+<xs:element name="validarUsuario" type="tns:validarUsuario"/>
+
+<xs:element name="validarUsuarioResponse" type="tns:validarUsuarioResponse"/>
+
 <xs:complexType name="modificarTipoTransac">
 <xs:sequence>
 <xs:element name="id" type="xs:string" minOccurs="0"/>
@@ -118,6 +122,19 @@
 <xs:complexType name="eliminarTipoTransacResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validarUsuario">
+<xs:sequence>
+<xs:element name="as_id" type="xs:string" minOccurs="0"/>
+<xs:element name="as_pass" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validarUsuarioResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 

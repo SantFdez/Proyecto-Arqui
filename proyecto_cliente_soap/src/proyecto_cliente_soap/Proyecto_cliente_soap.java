@@ -5,6 +5,7 @@
  */
 package proyecto_cliente_soap;
 
+import pkg_views.Login;
 import pkg_views.TipoTransacCRUD;
 
 /**
@@ -17,10 +18,10 @@ public class Proyecto_cliente_soap {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        TipoTransacCRUD obj = new TipoTransacCRUD();
+        Login obj = new Login();
         obj.setVisible(true);
         obj.setLocationRelativeTo(null);
-        TipoTransacCRUD obj2;
+        
         
     }
 
