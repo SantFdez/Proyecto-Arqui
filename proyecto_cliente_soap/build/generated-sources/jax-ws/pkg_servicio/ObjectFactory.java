@@ -34,10 +34,12 @@ public class ObjectFactory {
     private final static QName _ModificarCuentaBancResponse_QNAME = new QName("http://pkg_servicio/", "modificarCuentaBancResponse");
     private final static QName _BuscarCuentaBanc_QNAME = new QName("http://pkg_servicio/", "buscarCuentaBanc");
     private final static QName _EliminarTipoTransacResponse_QNAME = new QName("http://pkg_servicio/", "eliminarTipoTransacResponse");
+    private final static QName _ContarCuentasBancarias_QNAME = new QName("http://pkg_servicio/", "contarCuentasBancarias");
     private final static QName _BuscarCuentaBancResponse_QNAME = new QName("http://pkg_servicio/", "buscarCuentaBancResponse");
     private final static QName _ValidarUsuario_QNAME = new QName("http://pkg_servicio/", "validarUsuario");
     private final static QName _InsertarTipoTransac_QNAME = new QName("http://pkg_servicio/", "insertarTipoTransac");
     private final static QName _EliminarCuentaBanc_QNAME = new QName("http://pkg_servicio/", "eliminarCuentaBanc");
+    private final static QName _ContarCuentasBancariasResponse_QNAME = new QName("http://pkg_servicio/", "contarCuentasBancariasResponse");
     private final static QName _ValidarUsuarioResponse_QNAME = new QName("http://pkg_servicio/", "validarUsuarioResponse");
     private final static QName _BuscarTipoTransacResponse_QNAME = new QName("http://pkg_servicio/", "buscarTipoTransacResponse");
     private final static QName _ModificarTipoTransacResponse_QNAME = new QName("http://pkg_servicio/", "modificarTipoTransacResponse");
@@ -155,11 +157,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ContarCuentasBancariasResponse }
+     * 
+     */
+    public ContarCuentasBancariasResponse createContarCuentasBancariasResponse() {
+        return new ContarCuentasBancariasResponse();
+    }
+
+    /**
      * Create an instance of {@link ValidarUsuarioResponse }
      * 
      */
     public ValidarUsuarioResponse createValidarUsuarioResponse() {
         return new ValidarUsuarioResponse();
+    }
+
+    /**
+     * Create an instance of {@link ContarCuentasBancarias }
+     * 
+     */
+    public ContarCuentasBancarias createContarCuentasBancarias() {
+        return new ContarCuentasBancarias();
     }
 
     /**
@@ -285,6 +303,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ContarCuentasBancarias }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://pkg_servicio/", name = "contarCuentasBancarias")
+    public JAXBElement<ContarCuentasBancarias> createContarCuentasBancarias(ContarCuentasBancarias value) {
+        return new JAXBElement<ContarCuentasBancarias>(_ContarCuentasBancarias_QNAME, ContarCuentasBancarias.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link BuscarCuentaBancResponse }{@code >}}
      * 
      */
@@ -318,6 +345,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://pkg_servicio/", name = "eliminarCuentaBanc")
     public JAXBElement<EliminarCuentaBanc> createEliminarCuentaBanc(EliminarCuentaBanc value) {
         return new JAXBElement<EliminarCuentaBanc>(_EliminarCuentaBanc_QNAME, EliminarCuentaBanc.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ContarCuentasBancariasResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://pkg_servicio/", name = "contarCuentasBancariasResponse")
+    public JAXBElement<ContarCuentasBancariasResponse> createContarCuentasBancariasResponse(ContarCuentasBancariasResponse value) {
+        return new JAXBElement<ContarCuentasBancariasResponse>(_ContarCuentasBancariasResponse_QNAME, ContarCuentasBancariasResponse.class, null, value);
     }
 
     /**

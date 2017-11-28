@@ -56,6 +56,18 @@ public interface Servidor {
 
     /**
      * 
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "contarCuentasBancarias", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.ContarCuentasBancarias")
+    @ResponseWrapper(localName = "contarCuentasBancariasResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.ContarCuentasBancariasResponse")
+    @Action(input = "http://pkg_servicio/servidor/contarCuentasBancariasRequest", output = "http://pkg_servicio/servidor/contarCuentasBancariasResponse")
+    public String contarCuentasBancarias();
+
+    /**
+     * 
      * @param par1
      * @param par2
      * @return

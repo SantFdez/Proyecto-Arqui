@@ -193,5 +193,25 @@ public class servidor {
         }
 
     }
+    
+    
+    @WebMethod(operationName = "contarCuentasBancarias")
+    public String contarCuentasBancarias() {
+        
+
+        String sql = "select COUNT(*) from CUENTA_BANC";
+        Query qe = em1.createNativeQuery(sql);
+        List l1 = qe.getResultList();
+        if (l1.size() >= 1) {
+            Object ar_objeto = (Object) (l1.get(0));
+            //System.out.println("VALIDANDO: "+as_pass+" "+ar_objeto[1]);
+            
+            return ar_objeto.toString();
+
+        } else {
+            return null;
+        }
+
+    }
 
 }
