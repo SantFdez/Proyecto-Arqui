@@ -215,6 +215,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="buscarTipoTransac">
+<xs:sequence>
+<xs:element name="par1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarTipoTransacResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="modificarTipoCuenta">
 <xs:sequence>
 <xs:element name="id" type="xs:string" minOccurs="0"/>
@@ -225,18 +237,6 @@
 <xs:complexType name="modificarTipoCuentaResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="buscarTipoTransac">
-<xs:sequence>
-<xs:element name="par1" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="buscarTipoTransacResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -252,18 +252,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="insertarTipoCuenta">
-<xs:sequence>
-<xs:element name="par1" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="insertarTipoCuentaResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="insertarTipoTransac">
 <xs:sequence>
 <xs:element name="par1" type="xs:string" minOccurs="0"/>
@@ -272,6 +260,18 @@
 </xs:complexType>
 
 <xs:complexType name="insertarTipoTransacResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertarTipoCuenta">
+<xs:sequence>
+<xs:element name="par1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertarTipoCuentaResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:int"/>
 </xs:sequence>
