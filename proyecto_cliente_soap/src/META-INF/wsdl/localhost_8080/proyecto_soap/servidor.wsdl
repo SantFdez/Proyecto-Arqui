@@ -4,30 +4,6 @@
 <xsd:import namespace="http://pkg_servicio/" schemaLocation="http://localhost:8080/proyecto_soap/servidor?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="eliminarTipoTransac">
-<part name="parameters" element="tns:eliminarTipoTransac"/>
-</message>
-<message name="eliminarTipoTransacResponse">
-<part name="parameters" element="tns:eliminarTipoTransacResponse"/>
-</message>
-<message name="insertarTipoTransac">
-<part name="parameters" element="tns:insertarTipoTransac"/>
-</message>
-<message name="insertarTipoTransacResponse">
-<part name="parameters" element="tns:insertarTipoTransacResponse"/>
-</message>
-<message name="eliminarCuentaBanc">
-<part name="parameters" element="tns:eliminarCuentaBanc"/>
-</message>
-<message name="eliminarCuentaBancResponse">
-<part name="parameters" element="tns:eliminarCuentaBancResponse"/>
-</message>
-<message name="modificarCuentaBanc">
-<part name="parameters" element="tns:modificarCuentaBanc"/>
-</message>
-<message name="modificarCuentaBancResponse">
-<part name="parameters" element="tns:modificarCuentaBancResponse"/>
-</message>
 <message name="modificarTipoTransac">
 <part name="parameters" element="tns:modificarTipoTransac"/>
 </message>
@@ -40,65 +16,11 @@
 <message name="insertarCuentaBancResponse">
 <part name="parameters" element="tns:insertarCuentaBancResponse"/>
 </message>
-<message name="insertarCuenta">
-<part name="parameters" element="tns:insertarCuenta"/>
+<message name="modificarTipoCuenta">
+<part name="parameters" element="tns:modificarTipoCuenta"/>
 </message>
-<message name="insertarCuentaResponse">
-<part name="parameters" element="tns:insertarCuentaResponse"/>
-</message>
-<message name="eliminarCuenta">
-<part name="parameters" element="tns:eliminarCuenta"/>
-</message>
-<message name="eliminarCuentaResponse">
-<part name="parameters" element="tns:eliminarCuentaResponse"/>
-</message>
-<message name="buscarTipoCuenta">
-<part name="parameters" element="tns:buscarTipoCuenta"/>
-</message>
-<message name="buscarTipoCuentaResponse">
-<part name="parameters" element="tns:buscarTipoCuentaResponse"/>
-</message>
-<message name="buscarTodoCuenta">
-<part name="parameters" element="tns:buscarTodoCuenta"/>
-</message>
-<message name="buscarTodoCuentaResponse">
-<part name="parameters" element="tns:buscarTodoCuentaResponse"/>
-</message>
-<message name="modificarCuenta">
-<part name="parameters" element="tns:modificarCuenta"/>
-</message>
-<message name="modificarCuentaResponse">
-<part name="parameters" element="tns:modificarCuentaResponse"/>
-</message>
-<message name="buscarCuenta">
-<part name="parameters" element="tns:buscarCuenta"/>
-</message>
-<message name="buscarCuentaResponse">
-<part name="parameters" element="tns:buscarCuentaResponse"/>
-</message>
-<message name="ContarCuenta">
-<part name="parameters" element="tns:ContarCuenta"/>
-</message>
-<message name="ContarCuentaResponse">
-<part name="parameters" element="tns:ContarCuentaResponse"/>
-</message>
-<message name="buscarCuentaBanc">
-<part name="parameters" element="tns:buscarCuentaBanc"/>
-</message>
-<message name="buscarCuentaBancResponse">
-<part name="parameters" element="tns:buscarCuentaBancResponse"/>
-</message>
-<message name="validarUsuario">
-<part name="parameters" element="tns:validarUsuario"/>
-</message>
-<message name="validarUsuarioResponse">
-<part name="parameters" element="tns:validarUsuarioResponse"/>
-</message>
-<message name="buscarTipoTransac">
-<part name="parameters" element="tns:buscarTipoTransac"/>
-</message>
-<message name="buscarTipoTransacResponse">
-<part name="parameters" element="tns:buscarTipoTransacResponse"/>
+<message name="modificarTipoCuentaResponse">
+<part name="parameters" element="tns:modificarTipoCuentaResponse"/>
 </message>
 <message name="insertarTipoCuenta">
 <part name="parameters" element="tns:insertarTipoCuenta"/>
@@ -106,17 +28,35 @@
 <message name="insertarTipoCuentaResponse">
 <part name="parameters" element="tns:insertarTipoCuentaResponse"/>
 </message>
+<message name="eliminarCuentaBanc">
+<part name="parameters" element="tns:eliminarCuentaBanc"/>
+</message>
+<message name="eliminarCuentaBancResponse">
+<part name="parameters" element="tns:eliminarCuentaBancResponse"/>
+</message>
+<message name="eliminarTipoTransac">
+<part name="parameters" element="tns:eliminarTipoTransac"/>
+</message>
+<message name="eliminarTipoTransacResponse">
+<part name="parameters" element="tns:eliminarTipoTransacResponse"/>
+</message>
+<message name="modificarCuentaBanc">
+<part name="parameters" element="tns:modificarCuentaBanc"/>
+</message>
+<message name="modificarCuentaBancResponse">
+<part name="parameters" element="tns:modificarCuentaBancResponse"/>
+</message>
+<message name="insertarTipoTransac">
+<part name="parameters" element="tns:insertarTipoTransac"/>
+</message>
+<message name="insertarTipoTransacResponse">
+<part name="parameters" element="tns:insertarTipoTransacResponse"/>
+</message>
 <message name="eliminarTipoCuenta">
 <part name="parameters" element="tns:eliminarTipoCuenta"/>
 </message>
 <message name="eliminarTipoCuentaResponse">
 <part name="parameters" element="tns:eliminarTipoCuentaResponse"/>
-</message>
-<message name="modificarTipoCuenta">
-<part name="parameters" element="tns:modificarTipoCuenta"/>
-</message>
-<message name="modificarTipoCuentaResponse">
-<part name="parameters" element="tns:modificarTipoCuentaResponse"/>
 </message>
 <message name="buscarTipoCuenta2">
 <part name="parameters" element="tns:buscarTipoCuenta2"/>
@@ -124,23 +64,67 @@
 <message name="buscarTipoCuenta2Response">
 <part name="parameters" element="tns:buscarTipoCuenta2Response"/>
 </message>
+<message name="modificarCuenta">
+<part name="parameters" element="tns:modificarCuenta"/>
+</message>
+<message name="modificarCuentaResponse">
+<part name="parameters" element="tns:modificarCuentaResponse"/>
+</message>
+<message name="buscarTipoCuenta">
+<part name="parameters" element="tns:buscarTipoCuenta"/>
+</message>
+<message name="buscarTipoCuentaResponse">
+<part name="parameters" element="tns:buscarTipoCuentaResponse"/>
+</message>
+<message name="buscarCuentaBanc">
+<part name="parameters" element="tns:buscarCuentaBanc"/>
+</message>
+<message name="buscarCuentaBancResponse">
+<part name="parameters" element="tns:buscarCuentaBancResponse"/>
+</message>
+<message name="eliminarCuenta">
+<part name="parameters" element="tns:eliminarCuenta"/>
+</message>
+<message name="eliminarCuentaResponse">
+<part name="parameters" element="tns:eliminarCuentaResponse"/>
+</message>
+<message name="buscarCuenta">
+<part name="parameters" element="tns:buscarCuenta"/>
+</message>
+<message name="buscarCuentaResponse">
+<part name="parameters" element="tns:buscarCuentaResponse"/>
+</message>
+<message name="buscarTipoTransac">
+<part name="parameters" element="tns:buscarTipoTransac"/>
+</message>
+<message name="buscarTipoTransacResponse">
+<part name="parameters" element="tns:buscarTipoTransacResponse"/>
+</message>
+<message name="buscarTodoCuenta">
+<part name="parameters" element="tns:buscarTodoCuenta"/>
+</message>
+<message name="buscarTodoCuentaResponse">
+<part name="parameters" element="tns:buscarTodoCuentaResponse"/>
+</message>
+<message name="insertarCuenta">
+<part name="parameters" element="tns:insertarCuenta"/>
+</message>
+<message name="insertarCuentaResponse">
+<part name="parameters" element="tns:insertarCuentaResponse"/>
+</message>
+<message name="validarUsuario">
+<part name="parameters" element="tns:validarUsuario"/>
+</message>
+<message name="validarUsuarioResponse">
+<part name="parameters" element="tns:validarUsuarioResponse"/>
+</message>
+<message name="ContarCuenta">
+<part name="parameters" element="tns:ContarCuenta"/>
+</message>
+<message name="ContarCuentaResponse">
+<part name="parameters" element="tns:ContarCuentaResponse"/>
+</message>
 <portType name="servidor">
-<operation name="eliminarTipoTransac">
-<input wsam:Action="http://pkg_servicio/servidor/eliminarTipoTransacRequest" message="tns:eliminarTipoTransac"/>
-<output wsam:Action="http://pkg_servicio/servidor/eliminarTipoTransacResponse" message="tns:eliminarTipoTransacResponse"/>
-</operation>
-<operation name="insertarTipoTransac">
-<input wsam:Action="http://pkg_servicio/servidor/insertarTipoTransacRequest" message="tns:insertarTipoTransac"/>
-<output wsam:Action="http://pkg_servicio/servidor/insertarTipoTransacResponse" message="tns:insertarTipoTransacResponse"/>
-</operation>
-<operation name="eliminarCuentaBanc">
-<input wsam:Action="http://pkg_servicio/servidor/eliminarCuentaBancRequest" message="tns:eliminarCuentaBanc"/>
-<output wsam:Action="http://pkg_servicio/servidor/eliminarCuentaBancResponse" message="tns:eliminarCuentaBancResponse"/>
-</operation>
-<operation name="modificarCuentaBanc">
-<input wsam:Action="http://pkg_servicio/servidor/modificarCuentaBancRequest" message="tns:modificarCuentaBanc"/>
-<output wsam:Action="http://pkg_servicio/servidor/modificarCuentaBancResponse" message="tns:modificarCuentaBancResponse"/>
-</operation>
 <operation name="modificarTipoTransac">
 <input wsam:Action="http://pkg_servicio/servidor/modificarTipoTransacRequest" message="tns:modificarTipoTransac"/>
 <output wsam:Action="http://pkg_servicio/servidor/modificarTipoTransacResponse" message="tns:modificarTipoTransacResponse"/>
@@ -149,101 +133,81 @@
 <input wsam:Action="http://pkg_servicio/servidor/insertarCuentaBancRequest" message="tns:insertarCuentaBanc"/>
 <output wsam:Action="http://pkg_servicio/servidor/insertarCuentaBancResponse" message="tns:insertarCuentaBancResponse"/>
 </operation>
-<operation name="insertarCuenta">
-<input wsam:Action="http://pkg_servicio/servidor/insertarCuentaRequest" message="tns:insertarCuenta"/>
-<output wsam:Action="http://pkg_servicio/servidor/insertarCuentaResponse" message="tns:insertarCuentaResponse"/>
-</operation>
-<operation name="eliminarCuenta">
-<input wsam:Action="http://pkg_servicio/servidor/eliminarCuentaRequest" message="tns:eliminarCuenta"/>
-<output wsam:Action="http://pkg_servicio/servidor/eliminarCuentaResponse" message="tns:eliminarCuentaResponse"/>
-</operation>
-<operation name="buscarTipoCuenta">
-<input wsam:Action="http://pkg_servicio/servidor/buscarTipoCuentaRequest" message="tns:buscarTipoCuenta"/>
-<output wsam:Action="http://pkg_servicio/servidor/buscarTipoCuentaResponse" message="tns:buscarTipoCuentaResponse"/>
-</operation>
-<operation name="buscarTodoCuenta">
-<input wsam:Action="http://pkg_servicio/servidor/buscarTodoCuentaRequest" message="tns:buscarTodoCuenta"/>
-<output wsam:Action="http://pkg_servicio/servidor/buscarTodoCuentaResponse" message="tns:buscarTodoCuentaResponse"/>
-</operation>
-<operation name="modificarCuenta">
-<input wsam:Action="http://pkg_servicio/servidor/modificarCuentaRequest" message="tns:modificarCuenta"/>
-<output wsam:Action="http://pkg_servicio/servidor/modificarCuentaResponse" message="tns:modificarCuentaResponse"/>
-</operation>
-<operation name="buscarCuenta">
-<input wsam:Action="http://pkg_servicio/servidor/buscarCuentaRequest" message="tns:buscarCuenta"/>
-<output wsam:Action="http://pkg_servicio/servidor/buscarCuentaResponse" message="tns:buscarCuentaResponse"/>
-</operation>
-<operation name="ContarCuenta">
-<input wsam:Action="http://pkg_servicio/servidor/ContarCuentaRequest" message="tns:ContarCuenta"/>
-<output wsam:Action="http://pkg_servicio/servidor/ContarCuentaResponse" message="tns:ContarCuentaResponse"/>
-</operation>
-<operation name="buscarCuentaBanc">
-<input wsam:Action="http://pkg_servicio/servidor/buscarCuentaBancRequest" message="tns:buscarCuentaBanc"/>
-<output wsam:Action="http://pkg_servicio/servidor/buscarCuentaBancResponse" message="tns:buscarCuentaBancResponse"/>
-</operation>
-<operation name="validarUsuario">
-<input wsam:Action="http://pkg_servicio/servidor/validarUsuarioRequest" message="tns:validarUsuario"/>
-<output wsam:Action="http://pkg_servicio/servidor/validarUsuarioResponse" message="tns:validarUsuarioResponse"/>
-</operation>
-<operation name="buscarTipoTransac">
-<input wsam:Action="http://pkg_servicio/servidor/buscarTipoTransacRequest" message="tns:buscarTipoTransac"/>
-<output wsam:Action="http://pkg_servicio/servidor/buscarTipoTransacResponse" message="tns:buscarTipoTransacResponse"/>
+<operation name="modificarTipoCuenta">
+<input wsam:Action="http://pkg_servicio/servidor/modificarTipoCuentaRequest" message="tns:modificarTipoCuenta"/>
+<output wsam:Action="http://pkg_servicio/servidor/modificarTipoCuentaResponse" message="tns:modificarTipoCuentaResponse"/>
 </operation>
 <operation name="insertarTipoCuenta">
 <input wsam:Action="http://pkg_servicio/servidor/insertarTipoCuentaRequest" message="tns:insertarTipoCuenta"/>
 <output wsam:Action="http://pkg_servicio/servidor/insertarTipoCuentaResponse" message="tns:insertarTipoCuentaResponse"/>
 </operation>
+<operation name="eliminarCuentaBanc">
+<input wsam:Action="http://pkg_servicio/servidor/eliminarCuentaBancRequest" message="tns:eliminarCuentaBanc"/>
+<output wsam:Action="http://pkg_servicio/servidor/eliminarCuentaBancResponse" message="tns:eliminarCuentaBancResponse"/>
+</operation>
+<operation name="eliminarTipoTransac">
+<input wsam:Action="http://pkg_servicio/servidor/eliminarTipoTransacRequest" message="tns:eliminarTipoTransac"/>
+<output wsam:Action="http://pkg_servicio/servidor/eliminarTipoTransacResponse" message="tns:eliminarTipoTransacResponse"/>
+</operation>
+<operation name="modificarCuentaBanc">
+<input wsam:Action="http://pkg_servicio/servidor/modificarCuentaBancRequest" message="tns:modificarCuentaBanc"/>
+<output wsam:Action="http://pkg_servicio/servidor/modificarCuentaBancResponse" message="tns:modificarCuentaBancResponse"/>
+</operation>
+<operation name="insertarTipoTransac">
+<input wsam:Action="http://pkg_servicio/servidor/insertarTipoTransacRequest" message="tns:insertarTipoTransac"/>
+<output wsam:Action="http://pkg_servicio/servidor/insertarTipoTransacResponse" message="tns:insertarTipoTransacResponse"/>
+</operation>
 <operation name="eliminarTipoCuenta">
 <input wsam:Action="http://pkg_servicio/servidor/eliminarTipoCuentaRequest" message="tns:eliminarTipoCuenta"/>
 <output wsam:Action="http://pkg_servicio/servidor/eliminarTipoCuentaResponse" message="tns:eliminarTipoCuentaResponse"/>
-</operation>
-<operation name="modificarTipoCuenta">
-<input wsam:Action="http://pkg_servicio/servidor/modificarTipoCuentaRequest" message="tns:modificarTipoCuenta"/>
-<output wsam:Action="http://pkg_servicio/servidor/modificarTipoCuentaResponse" message="tns:modificarTipoCuentaResponse"/>
 </operation>
 <operation name="buscarTipoCuenta2">
 <input wsam:Action="http://pkg_servicio/servidor/buscarTipoCuenta2Request" message="tns:buscarTipoCuenta2"/>
 <output wsam:Action="http://pkg_servicio/servidor/buscarTipoCuenta2Response" message="tns:buscarTipoCuenta2Response"/>
 </operation>
+<operation name="modificarCuenta">
+<input wsam:Action="http://pkg_servicio/servidor/modificarCuentaRequest" message="tns:modificarCuenta"/>
+<output wsam:Action="http://pkg_servicio/servidor/modificarCuentaResponse" message="tns:modificarCuentaResponse"/>
+</operation>
+<operation name="buscarTipoCuenta">
+<input wsam:Action="http://pkg_servicio/servidor/buscarTipoCuentaRequest" message="tns:buscarTipoCuenta"/>
+<output wsam:Action="http://pkg_servicio/servidor/buscarTipoCuentaResponse" message="tns:buscarTipoCuentaResponse"/>
+</operation>
+<operation name="buscarCuentaBanc">
+<input wsam:Action="http://pkg_servicio/servidor/buscarCuentaBancRequest" message="tns:buscarCuentaBanc"/>
+<output wsam:Action="http://pkg_servicio/servidor/buscarCuentaBancResponse" message="tns:buscarCuentaBancResponse"/>
+</operation>
+<operation name="eliminarCuenta">
+<input wsam:Action="http://pkg_servicio/servidor/eliminarCuentaRequest" message="tns:eliminarCuenta"/>
+<output wsam:Action="http://pkg_servicio/servidor/eliminarCuentaResponse" message="tns:eliminarCuentaResponse"/>
+</operation>
+<operation name="buscarCuenta">
+<input wsam:Action="http://pkg_servicio/servidor/buscarCuentaRequest" message="tns:buscarCuenta"/>
+<output wsam:Action="http://pkg_servicio/servidor/buscarCuentaResponse" message="tns:buscarCuentaResponse"/>
+</operation>
+<operation name="buscarTipoTransac">
+<input wsam:Action="http://pkg_servicio/servidor/buscarTipoTransacRequest" message="tns:buscarTipoTransac"/>
+<output wsam:Action="http://pkg_servicio/servidor/buscarTipoTransacResponse" message="tns:buscarTipoTransacResponse"/>
+</operation>
+<operation name="buscarTodoCuenta">
+<input wsam:Action="http://pkg_servicio/servidor/buscarTodoCuentaRequest" message="tns:buscarTodoCuenta"/>
+<output wsam:Action="http://pkg_servicio/servidor/buscarTodoCuentaResponse" message="tns:buscarTodoCuentaResponse"/>
+</operation>
+<operation name="insertarCuenta">
+<input wsam:Action="http://pkg_servicio/servidor/insertarCuentaRequest" message="tns:insertarCuenta"/>
+<output wsam:Action="http://pkg_servicio/servidor/insertarCuentaResponse" message="tns:insertarCuentaResponse"/>
+</operation>
+<operation name="validarUsuario">
+<input wsam:Action="http://pkg_servicio/servidor/validarUsuarioRequest" message="tns:validarUsuario"/>
+<output wsam:Action="http://pkg_servicio/servidor/validarUsuarioResponse" message="tns:validarUsuarioResponse"/>
+</operation>
+<operation name="ContarCuenta">
+<input wsam:Action="http://pkg_servicio/servidor/ContarCuentaRequest" message="tns:ContarCuenta"/>
+<output wsam:Action="http://pkg_servicio/servidor/ContarCuentaResponse" message="tns:ContarCuentaResponse"/>
+</operation>
 </portType>
 <binding name="servidorPortBinding" type="tns:servidor">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="eliminarTipoTransac">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="insertarTipoTransac">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="eliminarCuentaBanc">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="modificarCuentaBanc">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="modificarTipoTransac">
 <soap:operation soapAction=""/>
 <input>
@@ -262,88 +226,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="insertarCuenta">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="eliminarCuenta">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="buscarTipoCuenta">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="buscarTodoCuenta">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="modificarCuenta">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="buscarCuenta">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="ContarCuenta">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="buscarCuentaBanc">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="validarUsuario">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="buscarTipoTransac">
+<operation name="modificarTipoCuenta">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -361,6 +244,42 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="eliminarCuentaBanc">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="eliminarTipoTransac">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="modificarCuentaBanc">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="insertarTipoTransac">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="eliminarTipoCuenta">
 <soap:operation soapAction=""/>
 <input>
@@ -370,7 +289,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="modificarTipoCuenta">
+<operation name="buscarTipoCuenta2">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -379,7 +298,88 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="buscarTipoCuenta2">
+<operation name="modificarCuenta">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="buscarTipoCuenta">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="buscarCuentaBanc">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="eliminarCuenta">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="buscarCuenta">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="buscarTipoTransac">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="buscarTodoCuenta">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="insertarCuenta">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="validarUsuario">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ContarCuenta">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
