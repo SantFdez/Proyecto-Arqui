@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+          
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>CLIENTES</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+         <h:form id="form">
+             <h:outputText value="CABECERA TRANSACCION"/>
+                <br></br><br></br>
+                
+                <h:outputText value="CODIGO:"/>
+                <h:inputText id="codigo" value="#{transaccion.codigo}" />
+                <br></br>
+                <h:outputText value="Fecha:"/>
+                <h:inputText id="fecha" value="#{transaccion.fecha}"/><h:outputText value="(yyyy/mm/dd)"/>
+                <br></br>
+                <h:outputText value="Ciudad Entrega:"/>
+                <h:selectOneMenu value="#{transaccion.cuentaBancaria}">
+   			<f:selectItems value="#{transaccion.cuentas()}" />
+   		</h:selectOneMenu>
+
+                
+                
+                <br></br>
+                <h:outputText value="RUC:"/>
+                <h:selectOneMenu value="#{transaccion.ruc}">
+   			<f:selectItems value="#{cliente.clientes()}" />
+   		</h:selectOneMenu>
+                <br></br>
+                <br></br><br></br>
+                <h:commandButton id="insertar" value="Insertar" action="#{transaccion.insertar}">  </h:commandButton>
+                <h:commandButton id="eliminar" value="Eliminar" action="#{transaccion.eliminar}" > </h:commandButton>
+                <h:commandButton id="modificar" value="Modificar" action="#{transaccion.modificar}"> </h:commandButton>
+                <h:commandButton id="buscar" value="Buscar" action="#{detalletransaccion.mostrarLista()}"> </h:commandButton>
+                <br></br><br></br>
+                <h:outputText value="#{transaccion.mensaje}"/>
+                <br></br><br></br><br></br>
+                    
+                <h:outputText value="DETALLE FACTURA"/>
+                  <h:dataTable value="#{detalletransaccion.listaDetalles}" var="art" border="1">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="CODIGO"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{art.codigo}"></h:outputText>
+                    </h:column>
+                      <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="ARTICULO"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{art.articulo}"></h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="CANTIDAD"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{art.cantidad}"></h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="PRECIO"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{art.precio}"></h:outputText>
+                    </h:column>
+                    
+                </h:dataTable>
+                <br></br>
+                <h:inputText id="codigoD" value="#{detalletransaccion.codigo}" />
+                <h:inputText id="arti" value="#{detalletransaccion.articulo}"/>
+                <h:inputText id="cant" value="#{detalletransaccion.cantidad}"/>
+                <h:inputText id="valor" value="#{detalletransaccion.precio}"/>
+                <br></br>
+                <h:commandButton id="insertarArticulo" value="Insertar Articulo" action="#{detalletransaccion.insertarDetalle}"> </h:commandButton>
+                
+                <h:commandButton id="modificarArticulo" value="Modificar Articulo" action="#{detalletransaccion.modificarDetalle}"> </h:commandButton>
+                <h:commandButton id="eliminarArticulo" value="Eliminar Articulo" action="#{detalletransaccion.eliminarDetalle}"> </h:commandButton>
+                <br></br>
+                <h:outputText value="#{detalletransaccion.mensaje}"/>
+
+                
+                <br></br>
+                <h:button value="Ayuda en Línea" outcome="ayuda.xhtml?origen=Facturacion" />
+                    <br></br><br></br>
+                <h:commandButton id="atras" value="Atras" action="/menu.xhtml"> </h:commandButton>
+           </h:form>
+    </body>
+</html>
