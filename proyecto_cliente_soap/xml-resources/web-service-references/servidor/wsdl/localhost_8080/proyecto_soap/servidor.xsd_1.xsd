@@ -1,36 +1,76 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://pkg_servicio/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://pkg_servicio/">
 
+<xs:element name="ContarCuenta" type="tns:ContarCuenta"/>
+
+<xs:element name="ContarCuentaResponse" type="tns:ContarCuentaResponse"/>
+
+<xs:element name="buscarCuenta" type="tns:buscarCuenta"/>
+
 <xs:element name="buscarCuentaBanc" type="tns:buscarCuentaBanc"/>
 
 <xs:element name="buscarCuentaBancResponse" type="tns:buscarCuentaBancResponse"/>
+
+<xs:element name="buscarCuentaResponse" type="tns:buscarCuentaResponse"/>
+
+<xs:element name="buscarTipoCuenta" type="tns:buscarTipoCuenta"/>
+
+<xs:element name="buscarTipoCuenta2" type="tns:buscarTipoCuenta2"/>
+
+<xs:element name="buscarTipoCuenta2Response" type="tns:buscarTipoCuenta2Response"/>
+
+<xs:element name="buscarTipoCuentaResponse" type="tns:buscarTipoCuentaResponse"/>
 
 <xs:element name="buscarTipoTransac" type="tns:buscarTipoTransac"/>
 
 <xs:element name="buscarTipoTransacResponse" type="tns:buscarTipoTransacResponse"/>
 
-<xs:element name="contarCuentasBancarias" type="tns:contarCuentasBancarias"/>
+<xs:element name="buscarTodoCuenta" type="tns:buscarTodoCuenta"/>
 
-<xs:element name="contarCuentasBancariasResponse" type="tns:contarCuentasBancariasResponse"/>
+<xs:element name="buscarTodoCuentaResponse" type="tns:buscarTodoCuentaResponse"/>
+
+<xs:element name="eliminarCuenta" type="tns:eliminarCuenta"/>
 
 <xs:element name="eliminarCuentaBanc" type="tns:eliminarCuentaBanc"/>
 
 <xs:element name="eliminarCuentaBancResponse" type="tns:eliminarCuentaBancResponse"/>
 
+<xs:element name="eliminarCuentaResponse" type="tns:eliminarCuentaResponse"/>
+
+<xs:element name="eliminarTipoCuenta" type="tns:eliminarTipoCuenta"/>
+
+<xs:element name="eliminarTipoCuentaResponse" type="tns:eliminarTipoCuentaResponse"/>
+
 <xs:element name="eliminarTipoTransac" type="tns:eliminarTipoTransac"/>
 
 <xs:element name="eliminarTipoTransacResponse" type="tns:eliminarTipoTransacResponse"/>
+
+<xs:element name="insertarCuenta" type="tns:insertarCuenta"/>
 
 <xs:element name="insertarCuentaBanc" type="tns:insertarCuentaBanc"/>
 
 <xs:element name="insertarCuentaBancResponse" type="tns:insertarCuentaBancResponse"/>
 
+<xs:element name="insertarCuentaResponse" type="tns:insertarCuentaResponse"/>
+
+<xs:element name="insertarTipoCuenta" type="tns:insertarTipoCuenta"/>
+
+<xs:element name="insertarTipoCuentaResponse" type="tns:insertarTipoCuentaResponse"/>
+
 <xs:element name="insertarTipoTransac" type="tns:insertarTipoTransac"/>
 
 <xs:element name="insertarTipoTransacResponse" type="tns:insertarTipoTransacResponse"/>
 
+<xs:element name="modificarCuenta" type="tns:modificarCuenta"/>
+
 <xs:element name="modificarCuentaBanc" type="tns:modificarCuentaBanc"/>
 
 <xs:element name="modificarCuentaBancResponse" type="tns:modificarCuentaBancResponse"/>
+
+<xs:element name="modificarCuentaResponse" type="tns:modificarCuentaResponse"/>
+
+<xs:element name="modificarTipoCuenta" type="tns:modificarTipoCuenta"/>
+
+<xs:element name="modificarTipoCuentaResponse" type="tns:modificarTipoCuentaResponse"/>
 
 <xs:element name="modificarTipoTransac" type="tns:modificarTipoTransac"/>
 
@@ -54,6 +94,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="buscarTipoCuenta">
+<xs:sequence>
+<xs:element name="par1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarTipoCuentaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="modificarCuentaBanc">
 <xs:sequence>
 <xs:element name="id" type="xs:string" minOccurs="0"/>
@@ -63,6 +115,114 @@
 </xs:complexType>
 
 <xs:complexType name="modificarCuentaBancResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarCuentaBanc">
+<xs:sequence>
+<xs:element name="as_codigo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarCuentaBancResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarTipoCuenta2">
+<xs:sequence>
+<xs:element name="par1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarTipoCuenta2Response">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarCuenta">
+<xs:sequence>
+<xs:element name="as_codigo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarCuentaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ContarCuenta">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="ContarCuentaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validarUsuario">
+<xs:sequence>
+<xs:element name="as_id" type="xs:string" minOccurs="0"/>
+<xs:element name="as_pass" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validarUsuarioResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarCuenta">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="par1" type="xs:string" minOccurs="0"/>
+<xs:element name="par2" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarCuentaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarCuenta">
+<xs:sequence>
+<xs:element name="par1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarCuentaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarTodoCuenta">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="buscarTodoCuentaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarTipoCuenta">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="par1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarTipoCuentaResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:int"/>
 </xs:sequence>
@@ -92,6 +252,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="insertarTipoCuenta">
+<xs:sequence>
+<xs:element name="par1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertarTipoCuentaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="insertarTipoTransac">
 <xs:sequence>
 <xs:element name="par1" type="xs:string" minOccurs="0"/>
@@ -105,13 +277,14 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="eliminarCuentaBanc">
+<xs:complexType name="insertarCuenta">
 <xs:sequence>
-<xs:element name="as_codigo" type="xs:string" minOccurs="0"/>
+<xs:element name="par1" type="xs:string" minOccurs="0"/>
+<xs:element name="par2" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="eliminarCuentaBancResponse">
+<xs:complexType name="insertarCuentaResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:int"/>
 </xs:sequence>
@@ -129,16 +302,15 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="validarUsuario">
+<xs:complexType name="eliminarTipoCuenta">
 <xs:sequence>
-<xs:element name="as_id" type="xs:string" minOccurs="0"/>
-<xs:element name="as_pass" type="xs:string" minOccurs="0"/>
+<xs:element name="as_codigo" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="validarUsuarioResponse">
+<xs:complexType name="eliminarTipoCuentaResponse">
 <xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
+<xs:element name="return" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -152,16 +324,6 @@
 <xs:complexType name="insertarCuentaBancResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="contarCuentasBancarias">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="contarCuentasBancariasResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>
