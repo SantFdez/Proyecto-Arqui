@@ -11,11 +11,13 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 import java.util.List;
+import java.util.Map;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.persistence.EntityManager;
@@ -230,7 +232,7 @@ public class servidor {
         try {
             qe.executeUpdate();
             em1.getTransaction().commit();
-            mensaje = "Se insertó satisfactoriamente";
+            mensaje = "Se insertÃ³ satisfactoriamente";
 
         } catch (Exception ex) {
             em1.getTransaction().rollback();
@@ -259,7 +261,7 @@ public class servidor {
         int li_filas = qe.executeUpdate();
         if (li_filas >= 1) {
             em1.getTransaction().commit();
-            mensaje = "Se eliminó satisfactoriamente";
+            mensaje = "Se eliminÃ³ satisfactoriamente";
 
         } else {
             em1.getTransaction().rollback();
@@ -282,7 +284,7 @@ public class servidor {
         int li_filas = qe.executeUpdate();
         if (li_filas >= 1) {
             em1.getTransaction().commit();
-            mensaje = "Se actualizó satisfactoriamente";
+            mensaje = "Se actualizÃ³ satisfactoriamente";
         } else {
             em1.getTransaction().rollback();
             mensaje = "No se pudo modificar";
@@ -316,7 +318,7 @@ public class servidor {
             listaDetalles.add("");
             listaDetalles.add("");
             listaDetalles.add("");
-            listaDetalles.add("No se encontró registro");
+            listaDetalles.add("No se encontrÃ³ registro");
         }
         sql = "select * from det_transac where cat_id=" + codigo;
         qe = em1.createNativeQuery(sql);
@@ -324,7 +326,7 @@ public class servidor {
         if (l1.size() >= 1) {
             for (int i = 0; i < l1.size(); i++) {
                 Object[] obj = (Object[]) l1.get(i);
-                String art = obj[0].toString() + "," + obj[2].toString() + "," + obj[3].toString() + "," + obj[4].toString()+ "," + obj[4].toString();
+                String art = obj[0].toString() + "," + obj[2].toString() + "," + obj[3].toString() + "," + obj[4].toString();
                 listaDetalles.add(art);
             }
         }
@@ -339,7 +341,7 @@ public class servidor {
             @WebParam(name = "cabTransac") String cabTransac) {
         String mensaje;
         
-        String sql = "INSERT INTO \"KIRA\".\"DET_TRANSAC\" (CAT_ID,DET_FECHA, TTR_ID, DET_VAL ) VALUES (?,TO_DATE(?, 'YYYY-MM-DD HH24:MI:SS'),?, ?)";
+        String sql = "INSERT INTO \"KIRA\".\"DET_TRANSAC\" (CAT_ID,DET_FECHA, TTR_ID, DET_VAL ) VALUES (?,TO_DATE('?', 'YYYY-MM-DD HH24:MI:SS'),?, ?)";
         em1.getTransaction().begin();
         Query qe = em1.createNativeQuery(sql).setParameter(1, cabTransac)
                 .setParameter(2, fecha)
@@ -349,7 +351,7 @@ public class servidor {
         try {
             qe.executeUpdate();
             em1.getTransaction().commit();
-            mensaje = "Se insertó satisfactoriamente";
+            mensaje = "Se insertÃ³ satisfactoriamente";
         } catch (Exception ex) {
             em1.getTransaction().rollback();
             mensaje = "No se pudo insertar";
@@ -367,7 +369,7 @@ public class servidor {
             @WebParam(name = "codigoDetalle") String codigoDet) {
         String mensaje = "";
         
-        String sql = "update det_transac set det_val='" + valor + "' " + ", det_fecha=TO_DATE("+fecha+", 'YYYY-MM-DD HH24:MI:SS')" + ", ttr_id='" + tipoTransac + "' where det_id='" + codigoDet + "'";
+        String sql = "update det_transac set det_val='" + valor + "' " + ", det_fecha=TO_DATE('"+fecha+"', 'YYYY-MM-DD HH24:MI:SS')" + ", ttr_id='" + tipoTransac + "' where det_id='" + codigoDet + "'";
 
         em1.getTransaction().begin();
         Query qe = em1.createNativeQuery(sql);
@@ -375,7 +377,7 @@ public class servidor {
         int li_filas = qe.executeUpdate();
         if (li_filas >= 1) {
             em1.getTransaction().commit();
-            mensaje = "Se actualizó satisfactoriamente";
+            mensaje = "Se actualizÃ³ satisfactoriamente";
 
         
         } else {
@@ -397,7 +399,7 @@ public class servidor {
         int li_filas = qe.executeUpdate();
         if (li_filas >= 1) {
             em1.getTransaction().commit();
-            mensaje = "Se eliminó satisfactoriamente";
+            mensaje = "Se eliminÃ³ satisfactoriamente";
             
             
         } else {
@@ -583,10 +585,15 @@ public class servidor {
 
     }
 
-  
-    
-    
+    @WebMethod(operationName = "cuentasBancariasLista")
+    public List cuentasBancariasLista(@WebParam(name = "par1") String par1) {
+        String sql = "select cub_id,cub_cliente from CUENTA_BANC";
+        LinkedHashMap<String, Object> lista = new LinkedHashMap<>();
+        Query qe = em1.createNativeQuery(sql);
+        List l1 = qe.getResultList();
+        
+        return l1;
+        
 
-
-
+    }
 }
