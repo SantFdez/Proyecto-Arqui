@@ -55,14 +55,74 @@ public interface Servidor {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
+<<<<<<< HEAD
     @RequestWrapper(localName = "insertarTipoTransac", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.InsertarTipoTransac")
     @ResponseWrapper(localName = "insertarTipoTransacResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.InsertarTipoTransacResponse")
     @Action(input = "http://pkg_servicio/servidor/insertarTipoTransacRequest", output = "http://pkg_servicio/servidor/insertarTipoTransacResponse")
     public int insertarTipoTransac(
+=======
+    @RequestWrapper(localName = "insertarCuentaBanc", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.InsertarCuentaBanc")
+    @ResponseWrapper(localName = "insertarCuentaBancResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.InsertarCuentaBancResponse")
+    @Action(input = "http://pkg_servicio/servidor/insertarCuentaBancRequest", output = "http://pkg_servicio/servidor/insertarCuentaBancResponse")
+    public int insertarCuentaBanc(
+>>>>>>> master
         @WebParam(name = "par1", targetNamespace = "")
         String par1,
         @WebParam(name = "par2", targetNamespace = "")
         String par2);
+
+    /**
+     * 
+<<<<<<< HEAD
+     * @param asCodigo
+=======
+     * @param par1
+     * @param id
+>>>>>>> master
+     * @return
+     *     returns int
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+<<<<<<< HEAD
+    @RequestWrapper(localName = "eliminarTipoTransac", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.EliminarTipoTransac")
+    @ResponseWrapper(localName = "eliminarTipoTransacResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.EliminarTipoTransacResponse")
+    @Action(input = "http://pkg_servicio/servidor/eliminarTipoTransacRequest", output = "http://pkg_servicio/servidor/eliminarTipoTransacResponse")
+    public int eliminarTipoTransac(
+        @WebParam(name = "as_codigo", targetNamespace = "")
+        String asCodigo);
+=======
+    @RequestWrapper(localName = "modificarTipoCuenta", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.ModificarTipoCuenta")
+    @ResponseWrapper(localName = "modificarTipoCuentaResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.ModificarTipoCuentaResponse")
+    @Action(input = "http://pkg_servicio/servidor/modificarTipoCuentaRequest", output = "http://pkg_servicio/servidor/modificarTipoCuentaResponse")
+    public int modificarTipoCuenta(
+        @WebParam(name = "id", targetNamespace = "")
+        String id,
+        @WebParam(name = "par1", targetNamespace = "")
+        String par1);
+>>>>>>> master
+
+    /**
+     * 
+     * @param par1
+     * @return
+     *     returns int
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+<<<<<<< HEAD
+    @RequestWrapper(localName = "insertarCuentaBanc", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.InsertarCuentaBanc")
+    @ResponseWrapper(localName = "insertarCuentaBancResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.InsertarCuentaBancResponse")
+    @Action(input = "http://pkg_servicio/servidor/insertarCuentaBancRequest", output = "http://pkg_servicio/servidor/insertarCuentaBancResponse")
+    public int insertarCuentaBanc(
+=======
+    @RequestWrapper(localName = "insertarTipoCuenta", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.InsertarTipoCuenta")
+    @ResponseWrapper(localName = "insertarTipoCuentaResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.InsertarTipoCuentaResponse")
+    @Action(input = "http://pkg_servicio/servidor/insertarTipoCuentaRequest", output = "http://pkg_servicio/servidor/insertarTipoCuentaResponse")
+    public int insertarTipoCuenta(
+>>>>>>> master
+        @WebParam(name = "par1", targetNamespace = "")
+        String par1);
 
     /**
      * 
@@ -72,30 +132,12 @@ public interface Servidor {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "eliminarTipoTransac", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.EliminarTipoTransac")
-    @ResponseWrapper(localName = "eliminarTipoTransacResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.EliminarTipoTransacResponse")
-    @Action(input = "http://pkg_servicio/servidor/eliminarTipoTransacRequest", output = "http://pkg_servicio/servidor/eliminarTipoTransacResponse")
-    public int eliminarTipoTransac(
+    @RequestWrapper(localName = "eliminarCuentaBanc", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.EliminarCuentaBanc")
+    @ResponseWrapper(localName = "eliminarCuentaBancResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.EliminarCuentaBancResponse")
+    @Action(input = "http://pkg_servicio/servidor/eliminarCuentaBancRequest", output = "http://pkg_servicio/servidor/eliminarCuentaBancResponse")
+    public int eliminarCuentaBanc(
         @WebParam(name = "as_codigo", targetNamespace = "")
         String asCodigo);
-
-    /**
-     * 
-     * @param par1
-     * @param par2
-     * @return
-     *     returns int
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "insertarCuentaBanc", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.InsertarCuentaBanc")
-    @ResponseWrapper(localName = "insertarCuentaBancResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.InsertarCuentaBancResponse")
-    @Action(input = "http://pkg_servicio/servidor/insertarCuentaBancRequest", output = "http://pkg_servicio/servidor/insertarCuentaBancResponse")
-    public int insertarCuentaBanc(
-        @WebParam(name = "par1", targetNamespace = "")
-        String par1,
-        @WebParam(name = "par2", targetNamespace = "")
-        String par2);
 
     /**
      * 
@@ -121,10 +163,19 @@ public interface Servidor {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
+<<<<<<< HEAD
     @RequestWrapper(localName = "transaccionReporte1", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.TransaccionReporte1")
     @ResponseWrapper(localName = "transaccionReporte1Response", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.TransaccionReporte1Response")
     @Action(input = "http://pkg_servicio/servidor/transaccionReporte1Request", output = "http://pkg_servicio/servidor/transaccionReporte1Response")
     public List<String> transaccionReporte1(
+=======
+    @RequestWrapper(localName = "modificarCuentaBanc", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.ModificarCuentaBanc")
+    @ResponseWrapper(localName = "modificarCuentaBancResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.ModificarCuentaBancResponse")
+    @Action(input = "http://pkg_servicio/servidor/modificarCuentaBancRequest", output = "http://pkg_servicio/servidor/modificarCuentaBancResponse")
+    public int modificarCuentaBanc(
+        @WebParam(name = "id", targetNamespace = "")
+        String id,
+>>>>>>> master
         @WebParam(name = "par1", targetNamespace = "")
         String par1,
         @WebParam(name = "par2", targetNamespace = "")
@@ -139,12 +190,19 @@ public interface Servidor {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
+<<<<<<< HEAD
     @RequestWrapper(localName = "modificarTipoCuenta", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.ModificarTipoCuenta")
     @ResponseWrapper(localName = "modificarTipoCuentaResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.ModificarTipoCuentaResponse")
     @Action(input = "http://pkg_servicio/servidor/modificarTipoCuentaRequest", output = "http://pkg_servicio/servidor/modificarTipoCuentaResponse")
     public int modificarTipoCuenta(
         @WebParam(name = "id", targetNamespace = "")
         String id,
+=======
+    @RequestWrapper(localName = "insertarTipoTransac", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.InsertarTipoTransac")
+    @ResponseWrapper(localName = "insertarTipoTransacResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.InsertarTipoTransacResponse")
+    @Action(input = "http://pkg_servicio/servidor/insertarTipoTransacRequest", output = "http://pkg_servicio/servidor/insertarTipoTransacResponse")
+    public int insertarTipoTransac(
+>>>>>>> master
         @WebParam(name = "par1", targetNamespace = "")
         String par1);
 
@@ -247,6 +305,21 @@ public interface Servidor {
     /**
      * 
      * @param par1
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "buscarTipoCuenta2", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.BuscarTipoCuenta2")
+    @ResponseWrapper(localName = "buscarTipoCuenta2Response", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.BuscarTipoCuenta2Response")
+    @Action(input = "http://pkg_servicio/servidor/buscarTipoCuenta2Request", output = "http://pkg_servicio/servidor/buscarTipoCuenta2Response")
+    public String buscarTipoCuenta2(
+        @WebParam(name = "par1", targetNamespace = "")
+        String par1);
+
+    /**
+     * 
+     * @param par1
      * @param par2
      * @param id
      * @return
@@ -254,10 +327,10 @@ public interface Servidor {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "modificarCuentaBanc", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.ModificarCuentaBanc")
-    @ResponseWrapper(localName = "modificarCuentaBancResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.ModificarCuentaBancResponse")
-    @Action(input = "http://pkg_servicio/servidor/modificarCuentaBancRequest", output = "http://pkg_servicio/servidor/modificarCuentaBancResponse")
-    public int modificarCuentaBanc(
+    @RequestWrapper(localName = "modificarCuenta", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.ModificarCuenta")
+    @ResponseWrapper(localName = "modificarCuentaResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.ModificarCuentaResponse")
+    @Action(input = "http://pkg_servicio/servidor/modificarCuentaRequest", output = "http://pkg_servicio/servidor/modificarCuentaResponse")
+    public int modificarCuenta(
         @WebParam(name = "id", targetNamespace = "")
         String id,
         @WebParam(name = "par1", targetNamespace = "")
@@ -273,15 +346,23 @@ public interface Servidor {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
+<<<<<<< HEAD
     @RequestWrapper(localName = "buscarTipoCuenta2", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.BuscarTipoCuenta2")
     @ResponseWrapper(localName = "buscarTipoCuenta2Response", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.BuscarTipoCuenta2Response")
     @Action(input = "http://pkg_servicio/servidor/buscarTipoCuenta2Request", output = "http://pkg_servicio/servidor/buscarTipoCuenta2Response")
     public String buscarTipoCuenta2(
+=======
+    @RequestWrapper(localName = "buscarTipoCuenta", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.BuscarTipoCuenta")
+    @ResponseWrapper(localName = "buscarTipoCuentaResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.BuscarTipoCuentaResponse")
+    @Action(input = "http://pkg_servicio/servidor/buscarTipoCuentaRequest", output = "http://pkg_servicio/servidor/buscarTipoCuentaResponse")
+    public String buscarTipoCuenta(
+>>>>>>> master
         @WebParam(name = "par1", targetNamespace = "")
         String par1);
 
     /**
      * 
+<<<<<<< HEAD
      * @param fecha
      * @param tipoTransac
      * @param valor
@@ -496,19 +577,36 @@ public interface Servidor {
     @ResponseWrapper(localName = "eliminarUsuarioResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.EliminarUsuarioResponse")
     @Action(input = "http://pkg_servicio/servidor/eliminarUsuarioRequest", output = "http://pkg_servicio/servidor/eliminarUsuarioResponse")
     public int eliminarUsuario(
+=======
+     * @param par1
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "buscarCuentaBanc", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.BuscarCuentaBanc")
+    @ResponseWrapper(localName = "buscarCuentaBancResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.BuscarCuentaBancResponse")
+    @Action(input = "http://pkg_servicio/servidor/buscarCuentaBancRequest", output = "http://pkg_servicio/servidor/buscarCuentaBancResponse")
+    public String buscarCuentaBanc(
+>>>>>>> master
         @WebParam(name = "par1", targetNamespace = "")
         String par1);
 
     /**
      * 
+<<<<<<< HEAD
      * @param par1
      * @param par2
      * @param id
+=======
+     * @param asCodigo
+>>>>>>> master
      * @return
      *     returns int
      */
     @WebMethod
     @WebResult(targetNamespace = "")
+<<<<<<< HEAD
     @RequestWrapper(localName = "insertarUsuario", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.InsertarUsuario")
     @ResponseWrapper(localName = "insertarUsuarioResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.InsertarUsuarioResponse")
     @Action(input = "http://pkg_servicio/servidor/insertarUsuarioRequest", output = "http://pkg_servicio/servidor/insertarUsuarioResponse")
@@ -519,10 +617,19 @@ public interface Servidor {
         String par1,
         @WebParam(name = "par2", targetNamespace = "")
         String par2);
+=======
+    @RequestWrapper(localName = "eliminarCuenta", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.EliminarCuenta")
+    @ResponseWrapper(localName = "eliminarCuentaResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.EliminarCuentaResponse")
+    @Action(input = "http://pkg_servicio/servidor/eliminarCuentaRequest", output = "http://pkg_servicio/servidor/eliminarCuentaResponse")
+    public int eliminarCuenta(
+        @WebParam(name = "as_codigo", targetNamespace = "")
+        String asCodigo);
+>>>>>>> master
 
     /**
      * 
      * @param par1
+<<<<<<< HEAD
      * @param par2
      * @param id
      * @return
@@ -544,11 +651,29 @@ public interface Servidor {
     /**
      * 
      * @param par2
+=======
      * @return
      *     returns java.lang.String
      */
     @WebMethod
     @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "buscarCuenta", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.BuscarCuenta")
+    @ResponseWrapper(localName = "buscarCuentaResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.BuscarCuentaResponse")
+    @Action(input = "http://pkg_servicio/servidor/buscarCuentaRequest", output = "http://pkg_servicio/servidor/buscarCuentaResponse")
+    public String buscarCuenta(
+        @WebParam(name = "par1", targetNamespace = "")
+        String par1);
+
+    /**
+     * 
+     * @param par1
+>>>>>>> master
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+<<<<<<< HEAD
     @RequestWrapper(localName = "buscarUsuario", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.BuscarUsuario")
     @ResponseWrapper(localName = "buscarUsuarioResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.BuscarUsuarioResponse")
     @Action(input = "http://pkg_servicio/servidor/buscarUsuarioRequest", output = "http://pkg_servicio/servidor/buscarUsuarioResponse")
@@ -567,6 +692,14 @@ public interface Servidor {
     @ResponseWrapper(localName = "CuentaListaResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.CuentaListaResponse")
     @Action(input = "http://pkg_servicio/servidor/CuentaListaRequest", output = "http://pkg_servicio/servidor/CuentaListaResponse")
     public List<String> cuentaLista();
+=======
+    @RequestWrapper(localName = "buscarTipoTransac", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.BuscarTipoTransac")
+    @ResponseWrapper(localName = "buscarTipoTransacResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.BuscarTipoTransacResponse")
+    @Action(input = "http://pkg_servicio/servidor/buscarTipoTransacRequest", output = "http://pkg_servicio/servidor/buscarTipoTransacResponse")
+    public String buscarTipoTransac(
+        @WebParam(name = "par1", targetNamespace = "")
+        String par1);
+>>>>>>> master
 
     /**
      * 
@@ -575,6 +708,7 @@ public interface Servidor {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
+<<<<<<< HEAD
     @RequestWrapper(localName = "balanceLista", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.BalanceLista")
     @ResponseWrapper(localName = "balanceListaResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.BalanceListaResponse")
     @Action(input = "http://pkg_servicio/servidor/balanceListaRequest", output = "http://pkg_servicio/servidor/balanceListaResponse")
@@ -597,6 +731,12 @@ public interface Servidor {
         String par1,
         @WebParam(name = "par2", targetNamespace = "")
         String par2);
+=======
+    @RequestWrapper(localName = "buscarTodoCuenta", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.BuscarTodoCuenta")
+    @ResponseWrapper(localName = "buscarTodoCuentaResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.BuscarTodoCuentaResponse")
+    @Action(input = "http://pkg_servicio/servidor/buscarTodoCuentaRequest", output = "http://pkg_servicio/servidor/buscarTodoCuentaResponse")
+    public List<String> buscarTodoCuenta();
+>>>>>>> master
 
     /**
      * 
@@ -618,6 +758,7 @@ public interface Servidor {
 
     /**
      * 
+<<<<<<< HEAD
      * @param par1
      * @return
      *     returns java.lang.String
@@ -672,6 +813,8 @@ public interface Servidor {
 
     /**
      * 
+=======
+>>>>>>> master
      * @param asId
      * @param asPass
      * @return
@@ -690,6 +833,7 @@ public interface Servidor {
 
     /**
      * 
+<<<<<<< HEAD
      * @param asCodigo
      * @return
      *     returns int
@@ -765,5 +909,16 @@ public interface Servidor {
     public String buscarCuenta(
         @WebParam(name = "par1", targetNamespace = "")
         String par1);
+=======
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(operationName = "ContarCuenta")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "ContarCuenta", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.ContarCuenta")
+    @ResponseWrapper(localName = "ContarCuentaResponse", targetNamespace = "http://pkg_servicio/", className = "pkg_servicio.ContarCuentaResponse")
+    @Action(input = "http://pkg_servicio/servidor/ContarCuentaRequest", output = "http://pkg_servicio/servidor/ContarCuentaResponse")
+    public String contarCuenta();
+>>>>>>> master
 
 }

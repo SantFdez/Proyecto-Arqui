@@ -6,7 +6,6 @@
 package proyecto_cliente_soap;
 
 import pkg_views.Login;
-import pkg_views.TipoTransacCRUD;
 
 /**
  *
@@ -21,7 +20,6 @@ public class Proyecto_cliente_soap {
         Login obj = new Login();
         obj.setVisible(true);
         obj.setLocationRelativeTo(null);
-        
         
     }
 

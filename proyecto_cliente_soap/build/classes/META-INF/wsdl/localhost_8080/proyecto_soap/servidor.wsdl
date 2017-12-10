@@ -28,6 +28,18 @@
 <message name="insertarCuentaBancResponse">
 <part name="parameters" element="tns:insertarCuentaBancResponse"/>
 </message>
+<message name="modificarTipoCuenta">
+<part name="parameters" element="tns:modificarTipoCuenta"/>
+</message>
+<message name="modificarTipoCuentaResponse">
+<part name="parameters" element="tns:modificarTipoCuentaResponse"/>
+</message>
+<message name="insertarTipoCuenta">
+<part name="parameters" element="tns:insertarTipoCuenta"/>
+</message>
+<message name="insertarTipoCuentaResponse">
+<part name="parameters" element="tns:insertarTipoCuentaResponse"/>
+</message>
 <message name="eliminarCuentaBanc">
 <part name="parameters" element="tns:eliminarCuentaBanc"/>
 </message>
@@ -278,6 +290,14 @@
 <operation name="insertarCuentaBanc">
 <input wsam:Action="http://pkg_servicio/servidor/insertarCuentaBancRequest" message="tns:insertarCuentaBanc"/>
 <output wsam:Action="http://pkg_servicio/servidor/insertarCuentaBancResponse" message="tns:insertarCuentaBancResponse"/>
+</operation>
+<operation name="modificarTipoCuenta">
+<input wsam:Action="http://pkg_servicio/servidor/modificarTipoCuentaRequest" message="tns:modificarTipoCuenta"/>
+<output wsam:Action="http://pkg_servicio/servidor/modificarTipoCuentaResponse" message="tns:modificarTipoCuentaResponse"/>
+</operation>
+<operation name="insertarTipoCuenta">
+<input wsam:Action="http://pkg_servicio/servidor/insertarTipoCuentaRequest" message="tns:insertarTipoCuenta"/>
+<output wsam:Action="http://pkg_servicio/servidor/insertarTipoCuentaResponse" message="tns:insertarTipoCuentaResponse"/>
 </operation>
 <operation name="eliminarCuentaBanc">
 <input wsam:Action="http://pkg_servicio/servidor/eliminarCuentaBancRequest" message="tns:eliminarCuentaBanc"/>

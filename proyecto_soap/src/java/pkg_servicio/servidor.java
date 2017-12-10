@@ -5,13 +5,12 @@
  */
 package pkg_servicio;
 
-import java.math.BigDecimal;
-import java.rmi.RemoteException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Date;
 import java.util.LinkedHashMap;
+=======
+>>>>>>> master
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -24,7 +23,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-
 
 
 /**
@@ -178,130 +176,71 @@ public class servidor {
         }
 
     }
-
-    @WebMethod(operationName = "validarUsuario")
-    public String validarUsuario(@WebParam(name = "as_id") String as_id, @WebParam(name = "as_pass") String as_pass) {
-        String acceso = "";
-
-        String sql = "select * from USUARIOS where US_ID=" + "'" + as_id + "'";
-        Query qe = em1.createNativeQuery(sql);
-        List l1 = qe.getResultList();
-        if (l1.size() >= 1) {
-            Object[] ar_objeto = (Object[]) (l1.get(0));
-            //System.out.println("VALIDANDO: "+as_pass+" "+ar_objeto[1]);
-            if (as_pass.equals(ar_objeto[1])) {
-                acceso = "1," + ar_objeto[2];
-            } else {
-                acceso = "0";
-            }
-            return acceso;
-
-        } else {
-            return null;
-        }
-
-    }
     
-    @WebMethod(operationName = "insertarTransaccion")
-
-    public String insertarTransaccion(
-            @WebParam(name = "fecha") String fecha,
-            
-            @WebParam(name = "cuentaBancaria") String cuentaBancaria,
-            @WebParam(name = "descripcion") String descripcion) {
-        String mensaje = "";
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        String strFecha = fecha;
-        java.util.Date fechaDate = null;
-
-        try {
-            fechaDate = formato.parse(strFecha);
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-
-        
-        String sql = "INSERT INTO \"KIRA\".\"CAB_TRANSAC\" (CAT_FECHA, CUB_ID, CAT_DESC) VALUES (TO_DATE(?, 'YYYY-MM-DD HH24:MI:SS'),?,?) ";
+    @WebMethod(operationName = "insertarTipoCuenta")
+    public int insertarTipoCuenta(
+            //@WebParam(name = "id") String id, 
+            @WebParam(name = "par1") String par1) {
+        String sql = "insert into TIPO_CUENTA (TCT_NOMBRE) values ('" + par1 + "')";
         em1.getTransaction().begin();
-        Query qe = em1.createNativeQuery(sql)
-                .setParameter(2, cuentaBancaria)
-                .setParameter(3, descripcion)
-                .setParameter(1, fecha);
-
+        Query qe = em1.createNativeQuery(sql);
         try {
             qe.executeUpdate();
             em1.getTransaction().commit();
-            mensaje = "Se insertó satisfactoriamente";
-
+            return 1;
         } catch (Exception ex) {
             em1.getTransaction().rollback();
-            mensaje = "No se pudo insertar";
+            return -1;
         }
-
-        String codigo=null;
-        sql = "SELECT CAT_ID FROM KIRA.CAB_TRANSAC ORDER BY CAT_ID DESC";
-        qe = em1.createNativeQuery(sql);
-        List l1 = qe.getResultList();
-        if (l1.size() >= 1) {
-            BigDecimal obj = (BigDecimal) l1.get(0);
-            codigo = obj.toString();
-        }
-        return mensaje + "," + codigo;
     }
 
-    @WebMethod(operationName = "eliminarTransaccion")
-    public String eliminarTransaccion(
-            @WebParam(name = "codigo") String codigo) {
-        String mensaje = "";
-        String sql = "delete from  cab_transac where cat_id='" + codigo + "'";
+    @WebMethod(operationName = "eliminarTipoCuenta")
+    public int eliminarTipoCuenta(@WebParam(name = "as_codigo") String as_codigo) {
+        String sql = "delete from  TIPO_CUENTA where TCT_CODIGO='" + as_codigo + "'";
         em1.getTransaction().begin();
         Query qe = em1.createNativeQuery(sql);
 
         int li_filas = qe.executeUpdate();
         if (li_filas >= 1) {
             em1.getTransaction().commit();
-            mensaje = "Se eliminó satisfactoriamente";
-
+            return 1;
         } else {
             em1.getTransaction().rollback();
-            mensaje = "No se pudo eliminar";
+            return 0;
         }
-        return mensaje;
     }
 
-    @WebMethod(operationName = "modificarTransaccion")
-    public String modificarFactura(
-            @WebParam(name = "cuentaBancaria") String cuentaBancaria,
-            @WebParam(name = "desc") String desc,
-            @WebParam(name = "fecha") String fecha,
-            @WebParam(name = "codigo") String codigo) {
-        String mensaje = "";
-        String sql = "update cab_transac set cub_id='" + cuentaBancaria + "' " + ", cat_desc='" + desc + "', cat_fecha=TO_DATE('" + fecha + "', 'YYYY-MM-DD HH24:MI:SS')  where cat_id='" + codigo + "'";
+    @WebMethod(operationName = "modificarTipoCuenta")
+    public int modificarTipoCuenta(
+            @WebParam(name = "id") String id, 
+            @WebParam(name = "par1") String par1) {
+        String sql = "update TIPO_CUENTA set TCT_NOMBRE='" + par1 + "' where TCT_CODIGO='" + id + "'";
         em1.getTransaction().begin();
         Query qe = em1.createNativeQuery(sql);
 
         int li_filas = qe.executeUpdate();
         if (li_filas >= 1) {
             em1.getTransaction().commit();
-            mensaje = "Se actualizó satisfactoriamente";
+            return 1;
         } else {
             em1.getTransaction().rollback();
-            mensaje = "No se pudo modificar";
+            return 0;
         }
-        return mensaje;
     }
 
-    @WebMethod(operationName = "buscarTransaccion")
-    public ArrayList<String> buscarTransaccion(
-             @WebParam(name = "codigo") String codigo) {
-        ArrayList<String> listaDetalles = new ArrayList<>();
-        String sql = "select * from cab_transac where cat_id=" + "'" + codigo + "'";
+    @WebMethod(operationName = "buscarTipoCuenta")
+    public String buscarTipoCuenta(@WebParam(name = "par1") String par1) {
+        String sql = "select * from TIPO_CUENTA where TCT_NOMBRE=" + "'" + par1 + "'";
         Query qe = em1.createNativeQuery(sql);
         List l1 = qe.getResultList();
         if (l1.size() >= 1) {
             Object[] ar_objeto = (Object[]) (l1.get(0));
+            String resultado = ar_objeto[0].toString();
+        
+            
+            return resultado;
 
+<<<<<<< HEAD
             DateFormat fecha2 = new SimpleDateFormat("yyyy/MM/dd");
             Date fechita = (Date) ar_objeto[2];
             String convertido = fecha2.format(fechita);
@@ -310,16 +249,33 @@ public class servidor {
             listaDetalles.add(convertido);
 
             listaDetalles.add(ar_objeto[3].toString());
+=======
+        } else {
+>>>>>>> master
             
+            return null;
+        }
+        
+
+    }
+    
+    @WebMethod(operationName = "buscarTipoCuenta2")
+    public String buscarTipoCuenta2(@WebParam(name = "par1") String par1) {
+        String sql = "select * from TIPO_CUENTA where TCT_CODIGO=" + "'" + par1 + "'";
+        Query qe = em1.createNativeQuery(sql);
+        List l1 = qe.getResultList();
+        if (l1.size() >= 1) {
+            Object[] ar_objeto = (Object[]) (l1.get(0));
+            String resultado = ar_objeto[1].toString();
+        
             
-            listaDetalles.add("Factura encontrada");
+            return resultado;
 
         } else {
-            listaDetalles.add("");
-            listaDetalles.add("");
-            listaDetalles.add("");
-            listaDetalles.add("No se encontró registro");
+            
+            return null;
         }
+<<<<<<< HEAD
         String sql2 = "select	 \"DET_TRANSAC\".\"DET_ID\" as \"DET_ID\",\n" +
 "     \"DET_TRANSAC\".\"CAT_ID\" as \"CAT_ID\",\n" +
 "     \"TIPO_TRANSAC\".\"TTR_NOMBRE\" as \"TTR_NOMBRE\",\n" +
@@ -346,35 +302,63 @@ public class servidor {
         }
         return listaDetalles;
     }
-
-    @WebMethod(operationName = "insertarDetalleTransaccion")
-    public String insertarDetalleTransaccion(
-            @WebParam(name = "fecha") String fecha,
-            @WebParam(name = "tipoTransac") String tipoTransac,
-            @WebParam(name = "val") String valor,
-            @WebParam(name = "cabTransac") String cabTransac) {
-        String mensaje;
+=======
         
+
+    }
+    
+    @WebMethod(operationName = "buscarTodoCuenta")
+    public List<String> buscarTodoCuenta() {
+        String sql = "select * from TIPO_CUENTA";
+        List<String> lista = new ArrayList<String>();
+        Query qe = em1.createNativeQuery(sql);
+        List l1 = qe.getResultList();
+        if (l1.size() >= 1) {
+            for(int i=0; i<l1.size();i++){
+            Object[] ar_objeto = (Object[]) (l1.get(i));
+            lista.add(ar_objeto[1].toString());
+            }
+        
+            
+            return lista;
+>>>>>>> master
+
+        } else {
+            
+            return null;
+        }
+        
+<<<<<<< HEAD
         System.out.println(fecha+" "+tipoTransac+" "+valor+" "+cabTransac);
         
         String sql = "INSERT INTO \"KIRA\".\"DET_TRANSAC\" (CAT_ID,DET_FECHA, TTR_ID, DET_VAL ) VALUES ("+cabTransac+",TO_DATE('"+fecha+"', 'YYYY-MM-DD HH24:MI:SS'),'"+tipoTransac+"','"+valor+"')";
         
         em1.getTransaction().begin();
         Query qe = em1.createNativeQuery(sql);
+=======
+>>>>>>> master
 
+    }
+    
+     @WebMethod(operationName = "insertarCuenta")
+    public int insertarCuenta(
+            //@WebParam(name = "id") String id, 
+            @WebParam(name = "par1") String par1,
+            @WebParam(name = "par2") String par2) {
+        String sql = "insert into CUENTA (CNT_NOMBRE, TCT_CODIGO) values ('" + par1 + "','"+ par2 +"')";
+        em1.getTransaction().begin();
+        Query qe = em1.createNativeQuery(sql);
         try {
             qe.executeUpdate();
             em1.getTransaction().commit();
-            mensaje = "Se insertó satisfactoriamente";
+            return 1;
         } catch (Exception ex) {
             em1.getTransaction().rollback();
-            mensaje = "No se pudo insertar";
-            System.out.println(ex.getMessage());
+            return -1;
         }
-        return mensaje;
-
     }
 
+<<<<<<< HEAD
     @WebMethod(operationName = "modificarDetalleTransaccion")
     public String modificarDetalleTransaccion(
             @WebParam(name = "fecha") String fecha, 
@@ -385,44 +369,60 @@ public class servidor {
         
         String sql = "update det_transac set det_val='" + valor + "', det_fecha=TO_DATE('"+fecha+"', 'YYYY-MM-DD HH24:MI:SS')" + ", ttr_id='" + tipoTransac + "' where det_id='" + codigoDet + "'";
 
+=======
+    @WebMethod(operationName = "eliminarCuenta")
+    public int eliminarCuenta(@WebParam(name = "as_codigo") String as_codigo) {
+        String sql = "delete from  CUENTA where CNT_CODIGO='" + as_codigo + "'";
+>>>>>>> master
         em1.getTransaction().begin();
         Query qe = em1.createNativeQuery(sql);
 
         int li_filas = qe.executeUpdate();
         if (li_filas >= 1) {
             em1.getTransaction().commit();
-            mensaje = "Se actualizó satisfactoriamente";
-
-        
+            return 1;
         } else {
             em1.getTransaction().rollback();
-            mensaje = "No se pudo modificar";
+            return 0;
         }
-        return mensaje;
     }
 
-  
-    @WebMethod(operationName = "eliminarDetalleTransaccion")
-    public String eliminarDetalleTransaccion(
-            @WebParam(name = "codigoDetalle")  String codigoDetalle            ) {
-        String mensaje = "";
-        String sql = "delete from  det_transac where det_id='" + codigoDetalle + "'";
+    @WebMethod(operationName = "modificarCuenta")
+    public int modificarCuenta(
+            @WebParam(name = "id") String id, 
+            @WebParam(name = "par1") String par1,
+            @WebParam(name = "par2") String par2) {
+        String sql = "update CUENTA set CNT_NOMBRE='" + par1 + "',TCT_CODIGO='"+par2+"' where CNT_CODIGO='" + id + "'";
         em1.getTransaction().begin();
         Query qe = em1.createNativeQuery(sql);
 
         int li_filas = qe.executeUpdate();
         if (li_filas >= 1) {
             em1.getTransaction().commit();
-            mensaje = "Se eliminó satisfactoriamente";
-            
-            
+            return 1;
         } else {
             em1.getTransaction().rollback();
-            mensaje = "No se pudo eliminar";
+            return 0;
         }
-        return mensaje;
+    }
+
+    @WebMethod(operationName = "buscarCuenta")
+    public String buscarCuenta(@WebParam(name = "par1") String par1) {
+        String sql = "select * from CUENTA where CNT_NOMBRE=" + "'" + par1 + "'";
+        Query qe = em1.createNativeQuery(sql);
+        List l1 = qe.getResultList();
+        if (l1.size() >= 1) {
+            Object[] ar_objeto = (Object[]) (l1.get(0));
+            String resultado = ar_objeto[0].toString()+","+ar_objeto[2].toString();
+            return resultado;
+
+        } else {
+            return null;
+        }
+
     }
     
+<<<<<<< HEAD
     @WebMethod(operationName = "buscarTodoCuenta")
     public List<String> buscarTodoCuenta() {
         String sql = "select * from TIPO_CUENTA";
@@ -586,10 +586,18 @@ public class servidor {
     @WebMethod(operationName = "buscarCuenta")
     public String buscarCuenta(@WebParam(name = "par1") String par1) {
         String sql = "select * from CUENTA where CNT_NOMBRE=" + "'" + par1 + "'";
+=======
+     @WebMethod(operationName = "validarUsuario")
+    public String validarUsuario(@WebParam(name = "as_id") String as_id, @WebParam(name = "as_pass") String as_pass) {
+        String acceso = "";
+
+        String sql = "select * from USUARIOS where US_ID=" + "'" + as_id + "'";
+>>>>>>> master
         Query qe = em1.createNativeQuery(sql);
         List l1 = qe.getResultList();
         if (l1.size() >= 1) {
             Object[] ar_objeto = (Object[]) (l1.get(0));
+<<<<<<< HEAD
             String resultado = ar_objeto[0].toString() + "," + ar_objeto[1].toString();
             return resultado;
 
@@ -631,12 +639,23 @@ public class servidor {
             }
             
             return array;
+=======
+            //System.out.println("VALIDANDO: "+as_pass+" "+ar_objeto[1]);
+            if (as_pass.equals(ar_objeto[1])) {
+                acceso = "1," + ar_objeto[2];
+            } else {
+                acceso = "0";
+            }
+            return acceso;
+
+>>>>>>> master
         } else {
             return null;
         }
 
     }
     
+<<<<<<< HEAD
      @WebMethod(operationName = "transaccionReporte1")
     public List<String> transaccionReporte1(@WebParam(name = "par1") String fechaA,
             @WebParam(name = "par2") String fechaB) {
@@ -797,6 +816,24 @@ public class servidor {
        String sql ="update usuarios set us_pass='"+password+"' "+", us_rol='"+ rol+"' where us_id='"+nombre+"'";
        em1.getTransaction().begin();
        Query qe=em1.createNativeQuery(sql);
+=======
+    @WebMethod(operationName = "ContarCuenta")
+    public String contarCuenta() {
+        String sql = "SELECT COUNT(TCT_CODIGO) FROM TIPO_CUENTA";
+        Query qe = em1.createNativeQuery(sql);
+        List l1 = qe.getResultList();
+        if (l1.size() >= 1) {
+            Object ar_objeto = (Object) (l1.get(0));
+            //Integer i = Integer.parseInt(l1.get(0));
+            String resultado = ar_objeto.toString();
+            return resultado;
+
+        } else {
+            return null;
+        }
+
+    }
+>>>>>>> master
 
        int li_filas=qe.executeUpdate();
        if (li_filas>=1)
