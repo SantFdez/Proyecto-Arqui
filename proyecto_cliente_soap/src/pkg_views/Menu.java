@@ -5,6 +5,10 @@
  */
 package pkg_views;
 
+import java.util.HashMap;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import pkg_clases.UsuarioCliente;
 import pkg_servicio.Servidor;
 import pkg_servicio.Servidor_Service;
@@ -18,8 +22,39 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    
+    private HashMap<String,JFrame> pantallas;
     public Menu() {
         initComponents();
+        
+        String[] modulo0 = { "Gestion usuarios"};
+        String[] modulo1 = { "Cuenta bancaria", "Tipo de transaccion"};
+        String[] modulo2 = { "Cuenta","Tipo de cuenta"};
+        String[] modulo3 = { "Cuenta bancaria", "Tipo de transaccion","Cuenta","Tipo de cuenta"};
+        DefaultComboBoxModel model;
+        if(UsuarioCliente.permisos.equals("0")){
+            model=new DefaultComboBoxModel(modulo0);    
+        }
+        else if(UsuarioCliente.permisos.equals("1")){
+            model=new DefaultComboBoxModel(modulo1);
+        }else if(UsuarioCliente.permisos.equals("2")){
+            model=new DefaultComboBoxModel(modulo2);
+        }else{
+            model=new DefaultComboBoxModel(modulo3);
+        }
+        
+        
+        cmbElegir.setModel(model);
+        
+        pantallas=new HashMap<>();
+        
+        pantallas.put("Cuenta bancaria", new CuentaBancCRUD());
+        pantallas.put( "Tipo de transaccion", new TipoTransacCRUD());
+        pantallas.put("Cuenta", new CuentaCRUD());
+        pantallas.put("Tipo de cuenta", new TipoCuentaCRUD());
+        
+        pantallas.put("Gestion usuarios", new GestionUsuarios());
+                
     }
 
     private Servidor_Service service = new Servidor_Service();
@@ -36,25 +71,29 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel4 = new javax.swing.JLabel();
-        brn1 = new javax.swing.JButton();
-        btn2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        cmbElegir = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel4.setText("Menu");
 
-        brn1.setText("Cuenta Bancaria");
-        brn1.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Ir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                brn1ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        btn2.setText("Tipo Transaccion");
-        btn2.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setText("Elija pantalla");
+
+        jButton2.setText("Logout");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn2ActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -62,50 +101,56 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
             .addGroup(layout.createSequentialGroup()
                 .addGap(103, 103, 103)
-                .addComponent(jLabel4)
-                .addContainerGap(268, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(85, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(brn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn2, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE))
-                .addGap(186, 186, 186))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel4)
+                    .addComponent(cmbElegir, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(jLabel4)
-                .addGap(31, 31, 31)
-                .addComponent(brn1)
-                .addGap(41, 41, 41)
-                .addComponent(btn2)
-                .addContainerGap(163, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(cmbElegir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(41, 41, 41))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void brn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brn1ActionPerformed
-
-        CuentaBancCRUD obj = new CuentaBancCRUD();
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        Login obj=new Login();
         obj.setVisible(true);
         obj.setLocationRelativeTo(null);
-        
-        
+        this.dispose();
+        UsuarioCliente.permisos="";
+        UsuarioCliente.user="";
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    }//GEN-LAST:event_brn1ActionPerformed
-
-    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
-        // TODO add your handling code here:
-        TipoTransacCRUD obj = new TipoTransacCRUD();
-        obj.setVisible(true);
-        obj.setLocationRelativeTo(null);
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String opcion=cmbElegir.getSelectedItem().toString();
+        pantallas.get(opcion).setVisible(true);
+        pantallas.get(opcion).setLocationRelativeTo(null);
+               
         
-        
-    }//GEN-LAST:event_btn2ActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,8 +189,10 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton brn1;
-    private javax.swing.JButton btn2;
+    private javax.swing.JComboBox<String> cmbElegir;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }

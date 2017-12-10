@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>LOGIN</title>
+    </h:head>
+    <h:body>
+
+        <f:view>
+        <h:form>
+        <h:outputText value="BIENVENIDO #{usuario.nombre}" />
+        <br></br>
+        
+
+        <c:set scope="request" var="rol" property="x" value="#{usuario.rol}"/>
+
+        
+        <c:choose>
+            <c:when test="#{rol==1}">
+                <h:outputText value="MÓDULO DE BANCOS" /><br></br><br></br>
+                <h:commandButton value="TRANSACCION" label="transaccion" action="/transaccion.xhtml"/><br></br><br></br>
+                <h:commandButton value="REPORTE 1" label="facrep1" action="/transaccionReporte1.xhtml"/><br></br><br></br>
+                <h:commandButton value="REPORTE 2" label="facrep2" action="/transaccionReporte2.xhtml"/><br></br><br></br>
+            </c:when>
+        </c:choose>
+        <c:choose>
+            <c:when test="#{rol==2}">
+                <h:outputText value="MÓDULO DE CONTABILIDAD" /><br></br><br></br>
+                <h:commandButton value="COMPROBANTE" label="comprobante" action="/comprobante.xhtml"/><br></br><br></br>
+                <h:commandButton value="REPORTE 1" label="cuentarep1" action="/balance.xhtml"/><br></br><br></br>
+                <h:commandButton value="REPORTE 2" label="cuentarep2" action="/resultados.xhtml"/><br></br><br></br>
+            </c:when>
+        </c:choose>
+        <c:choose>
+            <c:when test="#{rol==3}">
+                <h:outputText value="MÓDULO DE BANCOS" /><br></br><br></br>
+                <h:commandButton value="TRANSACCION" label="transaccion" action="/transaccion.xhtml"/><br></br><br></br>
+                <h:commandButton value="REPORTE 1" label="facrep1" action="/transaccionReporte1.xhtml"/><br></br><br></br>
+                <h:commandButton value="REPORTE 2" label="facrep2" action="/transaccionReporte2.xhtml"/><br></br><br></br>
+                
+                <h:outputText value="MÓDULO DE CONTABILIDAD" /><br></br><br></br>
+                <h:commandButton value="COMPROBANTE" label="comprobante" action="/comprobante.xhtml"/><br></br><br></br>
+                <h:commandButton value="REPORTE 1" label="cuentarep1" action="/balance.xhtml"/><br></br><br></br>
+                <h:commandButton value="REPORTE 2" label="cuentarep2" action="/resultados.xhtml"/><br></br><br></br>
+            </c:when>
+        </c:choose>
+        <c:choose>
+            <c:when test="#{rol==0}">
+                <h:outputText value="GESTIÓN DE USUARIOS" /><br></br><br></br>
+                <h:commandButton value="GESTIÓN USUARIOS" label="gestionUsuarios" action="/gestionusuarios.xhtml"/><br></br><br></br>
+            </c:when>
+        </c:choose>
+        <c:choose>
+            <c:when test="#{rol==4}">
+                <h:outputText value="ATENDER SOPORTE EN LÍNEA" /><br></br><br></br>
+                <h:button value="ATENDER SOPORTE EN LINEA" outcome="atender.xhtml" /><br></br><br></br>
+            </c:when>
+        </c:choose>
+        
+        <br></br>
+        <h:commandButton value="LOGOUT" label="LOGAUT" action="/index.xhtml"/>
+
+        </h:form>
+    </f:view>
+
+    </h:body>
+</html>
+

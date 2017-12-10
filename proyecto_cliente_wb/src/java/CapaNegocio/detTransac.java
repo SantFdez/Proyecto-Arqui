@@ -9,57 +9,51 @@ package CapaNegocio;
  *
  * @author Trancos
  */
-class detTransac {
-    private String codigoDetalle;
-    
-    private String tipoTransac;
-    private String fechaDetalle;
-    private String valorDetalle;
+public class dettransac {
+    String codigodetalle;
+    String tipotransac;
+    String fechadetalle;
+    String valordetalle;
 
-    public String getCodigoDetalle() {
-        return codigoDetalle;
+    public String getCodigodetalle() {
+        return codigodetalle;
     }
 
-    public void setCodigoDetalle(String codigoDetalle) {
-        this.codigoDetalle = codigoDetalle;
+    public void setCodigodetalle(String codigodetalle) {
+        this.codigodetalle = codigodetalle;
     }
 
-   
-
-    public String getTipoTransac() {
-        return tipoTransac;
+    public String getTipotransac() {
+        return tipotransac;
     }
 
-    public void setTipoTransac(String tipoTransac) {
-        this.tipoTransac = tipoTransac;
+    public void setTipotransac(String tipotransac) {
+        this.tipotransac = tipotransac;
     }
 
-    public String getFechaDetalle() {
-        return fechaDetalle;
+    public String getFechadetalle() {
+        return fechadetalle;
     }
 
-    public void setFechaDetalle(String fechaDetalle) {
-        this.fechaDetalle = fechaDetalle;
+    public void setFechadetalle(String fechadetalle) {
+        this.fechadetalle = fechadetalle;
     }
 
-    public String getValorDetalle() {
-        return valorDetalle;
+    public String getValordetalle() {
+        return valordetalle;
     }
 
-    public void setValorDetalle(String valorDetalle) {
-        this.valorDetalle = valorDetalle;
+    public void setValordetalle(String valordetalle) {
+        this.valordetalle = valordetalle;
     }
 
-    public detTransac(String codigoDetalle,  String tipoTransac, String fechaDetalle, String valorDetalle) {
-        this.codigoDetalle = codigoDetalle;
-        
-        this.tipoTransac = tipoTransac;
-        this.fechaDetalle = fechaDetalle;
-        this.valorDetalle = valorDetalle;
+    public dettransac(String codigodetalle, String tipotransac, String fechadetalle, String valordetalle) {
+        this.codigodetalle = codigodetalle;
+        this.tipotransac = tipotransac;
+        this.fechadetalle = fechadetalle;
+        this.valordetalle = valordetalle;
     }
-    
-    
-    
+
     
     
 }
