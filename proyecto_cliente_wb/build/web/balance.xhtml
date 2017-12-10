@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+          
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>BALANCE GENERAL</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+         <h:form id="form">
+             <h:outputText value="BALANCE GENERAL"/>
+                <br></br><br></br>
+                         
+                <h:commandButton id="reporte" value="Reporte" action="#{comprobante.reportar1}">  </h:commandButton>
+                
+                <br></br><br></br>
+                <h:outputText value="ACTIVOS"/>
+                <h:dataTable value="#{comprobante.activo}" var="aaa" border="1">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="CUENTA"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{aaa.nombre}"></h:outputText>
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="VALOR"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{aaa.debe}"></h:outputText>
+                    </h:column>
+                    
+                </h:dataTable>
+                <h:outputText value="Total Activos: "/>
+                <h:outputText value="#{comprobante.sumaAct}"/>
+                <br></br>
+                
+                <h:outputText value="PASIVOS"/>
+                <h:dataTable value="#{comprobante.pasivo}" var="bbb" border="1">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="CUENTA"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{bbb.nombre}"></h:outputText>
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="VALOR"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{bbb.haber}"></h:outputText>
+                    </h:column>
+                    
+                </h:dataTable>
+                <br></br>
+                
+                <h:outputText value="CAPITAL"/>
+                <h:dataTable value="#{comprobante.capital}" var="ccc" border="1">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="CUENTA"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{ccc.nombre}"></h:outputText>
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="VALOR"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{ccc.haber}"></h:outputText>
+                    </h:column>
+                    
+                </h:dataTable>
+                <h:outputText value="Total Pasivo y Capital: "/>
+                <h:outputText value="#{comprobante.total}"/>
+                <br></br>
+                <a href='javascript:window.print(); void 0;'>Imprimir</a><br></br><br></br>
+                <h:commandButton id="atras" value="Atras" action="/menu.xhtml"> </h:commandButton>
+           </h:form>
+    </body>
+</html>

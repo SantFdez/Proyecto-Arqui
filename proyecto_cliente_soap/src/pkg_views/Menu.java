@@ -5,6 +5,10 @@
  */
 package pkg_views;
 
+import java.util.HashMap;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import pkg_clases.UsuarioCliente;
 import pkg_servicio.Servidor;
 import pkg_servicio.Servidor_Service;
@@ -18,8 +22,39 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    
+    private HashMap<String,JFrame> pantallas;
     public Menu() {
         initComponents();
+        
+        String[] modulo0 = { "Gestion usuarios"};
+        String[] modulo1 = { "Cuenta bancaria", "Tipo de transaccion"};
+        String[] modulo2 = { "Cuenta","Tipo de cuenta"};
+        String[] modulo3 = { "Cuenta bancaria", "Tipo de transaccion","Cuenta","Tipo de cuenta"};
+        DefaultComboBoxModel model;
+        if(UsuarioCliente.permisos.equals("0")){
+            model=new DefaultComboBoxModel(modulo0);    
+        }
+        else if(UsuarioCliente.permisos.equals("1")){
+            model=new DefaultComboBoxModel(modulo1);
+        }else if(UsuarioCliente.permisos.equals("2")){
+            model=new DefaultComboBoxModel(modulo2);
+        }else{
+            model=new DefaultComboBoxModel(modulo3);
+        }
+        
+        
+        cmbElegir.setModel(model);
+        
+        pantallas=new HashMap<>();
+        
+        pantallas.put("Cuenta bancaria", new CuentaBancCRUD());
+        pantallas.put( "Tipo de transaccion", new TipoTransacCRUD());
+        pantallas.put("Cuenta", new CuentaCRUD());
+        pantallas.put("Tipo de cuenta", new TipoCuentaCRUD());
+        
+        pantallas.put("Gestion usuarios", new GestionUsuarios());
+                
     }
 
     private Servidor_Service service = new Servidor_Service();
@@ -37,17 +72,40 @@ public class Menu extends javax.swing.JFrame {
 
         lblMsj = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+<<<<<<< HEAD
+        jButton1 = new javax.swing.JButton();
+        cmbElegir = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+=======
         btn1 = new javax.swing.JButton();
+>>>>>>> master
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel4.setText("Menu");
 
+<<<<<<< HEAD
+        jButton1.setText("Ir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Elija pantalla");
+
+        jButton2.setText("Logout");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+=======
         btn1.setText("Login");
         btn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn1ActionPerformed(evt);
+>>>>>>> master
             }
         });
 
@@ -55,7 +113,21 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
+                .addGap(103, 103, 103)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel4)
+                    .addComponent(cmbElegir, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(113, Short.MAX_VALUE))
+=======
                 .addGap(85, 85, 85)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblMsj, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -65,27 +137,60 @@ public class Menu extends javax.swing.JFrame {
                             .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(160, 160, 160)))
                 .addContainerGap(108, Short.MAX_VALUE))
+>>>>>>> master
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(jLabel4)
+<<<<<<< HEAD
+                .addGap(28, 28, 28)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(cmbElegir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(41, 41, 41))
+=======
                 .addGap(43, 43, 43)
                 .addComponent(btn1)
                 .addGap(57, 57, 57)
                 .addComponent(lblMsj, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(130, Short.MAX_VALUE))
+>>>>>>> master
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        Login obj=new Login();
+        obj.setVisible(true);
+        obj.setLocationRelativeTo(null);
+        this.dispose();
+        UsuarioCliente.permisos="";
+        UsuarioCliente.user="";
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String opcion=cmbElegir.getSelectedItem().toString();
+        pantallas.get(opcion).setVisible(true);
+        pantallas.get(opcion).setLocationRelativeTo(null);
+               
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+=======
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         
         
 
     }//GEN-LAST:event_btn1ActionPerformed
+>>>>>>> master
 
     /**
      * @param args the command line arguments
@@ -126,7 +231,14 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
+    private javax.swing.JComboBox<String> cmbElegir;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+=======
     private javax.swing.JButton btn1;
+>>>>>>> master
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblMsj;
     // End of variables declaration//GEN-END:variables

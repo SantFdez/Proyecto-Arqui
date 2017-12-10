@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+          
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>COMPROBANTE CONTABILIDAD</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+         <h:form id="form">
+             <h:outputText value="CABECERA COMPROBANTE"/>
+                <br></br><br></br>
+                
+                <h:outputText value="Numero:"/>
+                <h:inputText id="codigo" value="#{comprobante.codigoCabecera}" />
+                <br></br>
+                <h:outputText value="Fecha:"/>
+                <h:inputText id="fecha" value="#{comprobante.fechaCabecera}"/><h:outputText value="(yyyy/mm/dd)"/>
+                <br></br>
+                <h:outputText value="Observaciones:"/>
+                <h:inputText id="descripcion" value="#{comprobante.descripcion}"/>                 
+                
+                <br></br><br></br>
+                <h:commandButton id="insertar" value="Insertar" action="#{comprobante.insertar}">  </h:commandButton>
+                <h:commandButton id="eliminar" value="Eliminar" action="#{comprobante.eliminar}" > </h:commandButton>
+                <h:commandButton id="modificar" value="Modificar" action="#{comprobante.modificar}"> </h:commandButton>
+                <h:commandButton id="buscar" value="Buscar" action="#{comprobante.buscar()}"> </h:commandButton>
+                <br></br><br></br>
+                <h:outputText value="#{comprobante.mensajeCabecera}"/>
+                <br></br><br></br><br></br>
+                
+                
+                    
+                <h:outputText value="DETALLE COMPROBANTE"/>
+                <h:dataTable value="#{comprobante.listaDetalles}" var="art" border="1">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="CODIGO"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{art.codigodetalle}"></h:outputText>
+                    </h:column>
+                      <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="CUENTA"></h:outputText>
+                        </f:facet>
+                          <h:outputText value="#{art.tipocuenta}"></h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="DEBE"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{art.debe}"></h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="HABER"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{art.haber}"></h:outputText>
+                    </h:column>
+                    
+                </h:dataTable>
+                <br></br>
+                <h:inputText id="codigoD" value="#{comprobante.codigoDetalle}" />
+                <h:selectOneMenu value="#{comprobante.tipoCuenta}">
+                    <f:selectItems value="#{comprobante.tiposCuentas()}" />
+                </h:selectOneMenu>
+                <h:inputText id="fechaDetalle" value="#{comprobante.debe}"/>
+                
+                <h:inputText id="valor" value="#{comprobante.haber}"/>
+                <br></br>
+                <h:commandButton id="insertarArticulo" value="Insertar Detalle" action="#{comprobante.insertarDetalle}"> </h:commandButton>
+                
+                <h:commandButton id="modificarArticulo" value="Modificar Detalle" action="#{comprobante.modificarDetalle}"> </h:commandButton>
+                <h:commandButton id="eliminarArticulo" value="Eliminar Detalle" action="#{comprobante.eliminarDetalle}"> </h:commandButton>
+                <br></br>
+                <h:outputText value="#{comprobante.mensajeDetalle}"/>
+               
+
+                
+                
+                
+                    <br></br><br></br>
+                <h:commandButton id="atras" value="Atras" action="/menu.xhtml"> </h:commandButton>
+           </h:form>
+    </body>
+</html>

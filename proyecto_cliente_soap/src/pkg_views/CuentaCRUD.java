@@ -112,6 +112,14 @@ public class CuentaCRUD extends javax.swing.JFrame {
         });
 
         btnVolver.setText("Volver");
+<<<<<<< HEAD
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+=======
+>>>>>>> master
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel4.setText("Cuenta");
@@ -308,6 +316,13 @@ public class CuentaCRUD extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnModificarActionPerformed
 
+<<<<<<< HEAD
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVolverActionPerformed
+
+=======
+>>>>>>> master
     /**
      * @param args the command line arguments
      */
